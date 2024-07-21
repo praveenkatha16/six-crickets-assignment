@@ -1,0 +1,23 @@
+<h1>Camera Software</h1>
+
+<p class="status" [class.compatible]="hasCompatibleHardware">
+  {{ hasCompatibleHardware ? 'Has compatible hardware' : 'Doesnot have
+  compatible hardware' }}
+</p>
+
+<p>Desired Camera Software Settings</p>
+<app-camera-settings [formControl]="desiredConfig"></app-camera-settings>
+
+<p>Cameras Hardware Settings</p>
+<button class="add-btn" (click)="addCamera()" mat-raised-button>
+  Add Camera Hardware
+</button>
+
+@for(camera of cameras.controls; track $index) {
+<section>
+  <app-camera-settings [formControl]="camera"></app-camera-settings>
+  <button (click)="delete($index)" class="del-btn" mat-mini-fab>
+    <mat-icon>delete</mat-icon>
+  </button>
+</section>
+}

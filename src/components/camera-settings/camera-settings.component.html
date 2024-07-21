@@ -1,0 +1,23 @@
+<ng-container [formGroup]="cameraSettings">
+  <section>
+    <p>Light</p>
+    <mat-slider formGroupName="light" min="1" max="10" discrete>
+      <input formControlName="start" matSliderStartThumb />
+      <input formControlName="end" matSliderEndThumb />
+    </mat-slider>
+  </section>
+
+  <section>
+    <p>Distance</p>
+    <mat-slider
+      formGroupName="distance"
+      step="10"
+      min="100"
+      max="1000"
+      discrete
+    >
+      <input formControlName="start" matSliderStartThumb />
+      <input formControlName="end" matSliderEndThumb />
+    </mat-slider>
+  </section>
+</ng-container>
