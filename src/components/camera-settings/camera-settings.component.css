@@ -13,3 +13,7 @@ section {
 mat-slider {
   width: 90%;
 }
+
+p {
+  font-weight: bold;
+}

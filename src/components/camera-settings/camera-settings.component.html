@@ -1,6 +1,9 @@
 <ng-container [formGroup]="cameraSettings">
   <section>
-    <p>Light</p>
+    <p>
+      Light [{{cameraSettings.value.light?.start}} -
+      {{cameraSettings.value.light?.end}}]
+    </p>
     <mat-slider formGroupName="light" min="1" max="10" discrete>
       <input formControlName="start" matSliderStartThumb />
       <input formControlName="end" matSliderEndThumb />
@@ -8,7 +11,10 @@
   </section>
 
   <section>
-    <p>Distance</p>
+    <p>
+      Distance [{{cameraSettings.value.distance?.start}} -
+      {{cameraSettings.value.distance?.end}}]
+    </p>
     <mat-slider
       formGroupName="distance"
       step="10"
