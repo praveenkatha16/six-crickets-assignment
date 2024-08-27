@@ -1,15 +1,18 @@
 import { Injectable } from "@angular/core";
-import { timer, map } from "rxjs";
+import { timer, map, takeWhile } from "rxjs";
 
 import { DeadlineAPI } from "src/api/deadline.api";
 
-@Injectable({ providedIn: "root" })
+@Injectable()
 export class DeadlineFacade {
   private expiryTimeInMillis: number | undefined;
 
   constructor(private deadlineApi: DeadlineAPI) {}
 
-  public timeLeft$ = timer(0, 1000).pipe(map(() => this._timeLeft));
+  public timeLeft$ = timer(0, 1000).pipe(
+    map(() => this._timeLeft),
+    takeWhile((timeLeft) => timeLeft != undefined && timeLeft >= 0)
+  );
 
   private get _timeLeft(): number | undefined {
     return (

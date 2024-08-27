@@ -1,13 +1,23 @@
 import { Component, inject } from "@angular/core";
-import { FormBuilder } from "@angular/forms";
-import { hasCompatibleHardware } from "src/utils/camera.utils";
+import { ReactiveFormsModule, FormsModule, FormBuilder } from "@angular/forms";
 
-let id = 3;
+import { MatIconModule } from "@angular/material/icon";
+import { MatButtonModule } from "@angular/material/button";
+
+import { hasCompatibleHardware } from "src/utils/camera.utils";
+import { CameraSettingsComponent } from "../camera-settings/camera-settings.component";
 
 @Component({
   selector: "app-camera",
   templateUrl: "./camera.component.html",
   styleUrls: ["./camera.component.css"],
+  standalone: true,
+  imports: [
+    ReactiveFormsModule,
+    CameraSettingsComponent,
+    MatIconModule,
+    MatButtonModule,
+  ],
 })
 export class CameraComponent {
   fb = inject(FormBuilder);

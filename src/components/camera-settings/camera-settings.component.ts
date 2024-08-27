@@ -4,6 +4,9 @@ import {
   ControlValueAccessor,
   NG_VALUE_ACCESSOR,
 } from "@angular/forms";
+import { MatSliderModule } from "@angular/material/slider";
+import { ReactiveFormsModule, FormsModule } from "@angular/forms";
+
 import { distinctUntilChanged } from "rxjs";
 import { isEqual } from "lodash";
 import { CameraSettings } from "src/models/camera.model";
@@ -19,6 +22,8 @@ import { CameraSettings } from "src/models/camera.model";
       multi: true,
     },
   ],
+  imports: [MatSliderModule, FormsModule, ReactiveFormsModule],
+  standalone: true,
 })
 export class CameraSettingsComponent implements ControlValueAccessor {
   fb = inject(FormBuilder);

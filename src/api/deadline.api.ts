@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Injectable } from "@angular/core";
+import { Observable, of } from "rxjs";
 
-@Injectable({ providedIn: 'root' })
+@Injectable({ providedIn: "root" })
 export class DeadlineAPI {
   public getDeadline(): Observable<{ secondsLeft: number }> {
-    return of({ secondsLeft: 300 });
+    return of({ secondsLeft: 10 });
   }
 }
